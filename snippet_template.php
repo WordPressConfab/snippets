@@ -38,7 +38,7 @@ function wpconfab_() {
 *         2.  
 */
 
-add_action ( 'genesis_',  'wpconfab_' );
+add_action ( '',  'wpconfab_' );
 
 function wpconfab_() {
 
