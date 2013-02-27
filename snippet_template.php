@@ -3,7 +3,9 @@
 *
 *  GENESIS SNIPPET TEMPLATE (DELETE THIS LINE) 
 *
-* Title:      
+* Title:
+* Purpose:    
+*        
 * Dependencies: 
 *         1.  The Genesis WordPress Framework
 *         2.  
