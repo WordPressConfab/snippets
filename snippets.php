@@ -131,5 +131,5 @@ add_action( 'pre_get_posts', 'theme_post_override', 1);
 
 add_action( 'genesis_meta', 'wpconfab_add_skip_nav' );
 function wpconfab_add_skip_nav() {
-  echo '<a class="skipnav" href="#content">Skip to main content</a>';
+  echo '<a id="skipnav" href="#content">Skip to main content</a>';
 }
