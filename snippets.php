@@ -51,7 +51,6 @@ function wpconfab_load_favicon() {
 *         
 * Usage:      
 *         1.  Paste the code into your functions.php file.
-*         2.  
 */
 
 
@@ -68,7 +67,6 @@ function wpconfab_add_viewport_meta_tag() {
 *
 * Dependencies: 
 *         1.  The Genesis WordPress Framework
-*         2.  
 *         
 * Usage:      
 *         1.  Paste the code into your functions.php file.
@@ -116,4 +114,22 @@ function theme_post_override ( $query ) {
 }
 add_action( 'pre_get_posts', 'theme_post_override', 1);
 
+
+/*
+*
+*
+* Title:		5.  Add a skip nav tag to Genesis themes
+* Purpose:		Improves site accessibility by adding a like screen reader users can click on to skip directly to the content section of the page. 
+*
+* Dependencies: 
+*         1.  The Genesis WordPress Framework
+*         
+* Usage:      
+*         1.  Paste the code into your functions.php file.
+*/
+
+
+add_action( 'genesis_meta', 'wpconfab_add_skip_nav' );
+function wpconfab_add_skip_nav() {
+  echo '<a class="skipnav" href="#content">Skip to main content</a>';
 }
