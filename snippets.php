@@ -80,3 +80,40 @@ add_action( 'genesis_meta', 'wpconfab_add_viewport_meta_tag' );
 function wpconfab_add_viewport_meta_tag() {
     echo '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>';
 }
+
+/*
+*
+* Title: Post Limit Override
+* Purpose: In wordpress, the user can set the maximum number of posts to view on any page
+*		that uses the loop to display posts. This is nice for the user but can cause some 
+*		unwanted effects when displaying some template pages. My example use case involves
+* 		the author template page. My requirements were to display ALL the posts for a 
+*		particular author, not limited by the max post option in wordpress. 
+*
+*		For more reading: http://codex.wordpress.org/Plugin_API/Action_Reference/pre_get_posts
+*       
+* Dependencies: 
+*         1.  None 
+*         
+* Usage:      
+*         1.  Paste the code into your functions.php file.
+*         2.  Alter the if conditionals to match your requirements.
+*/
+
+// Function to override the set value of Post Limit in Wordpress
+function theme_post_override ( $query ) {
+	// Only act on author pages 
+	if ( is_author() ) {
+		// Display ALL posts
+		$query->set( 'posts_per_page', -1 );
+		return;
+	}
+	// Act on 'custom' post type when displaying archive of posts
+	if ( is_post_type_archive(' custom' ) ) {
+		// Display 10 posts
+		$query->set( 'posts_per_page', 10 );
+	}
+}
+add_action( 'pre_get_posts', 'theme_post_override', 1);
+
+}
