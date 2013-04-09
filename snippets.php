@@ -127,7 +127,8 @@ add_action( 'pre_get_posts', 'theme_post_override', 1);
 * Usage:      
 *         1.  Paste the code into your functions.php file.
 */
-
+// style.css
+// #skipnav { #skipnav { text-indent: -4000px;  }
 
 add_action( 'genesis_site_title', 'wpconfab_add_skip_nav' );
 function wpconfab_add_skip_nav() {
